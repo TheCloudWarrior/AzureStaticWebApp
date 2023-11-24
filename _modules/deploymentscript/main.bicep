@@ -11,7 +11,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   properties: {
     azPowerShellVersion: '3.0'
     scriptContent: loadTextContent('./_scripts/Test-Resource.ps1')
-    arguments: '-subscriptionId ${subscription().id} -resourceGroup ${resourceGroup().name} -staticSiteName ${staticSiteName} -customDomainName ${customDomainName}'
+    arguments: '-subscriptionId ${subscription().subscriptionId} -resourceGroup ${resourceGroup().name} -staticSiteName ${staticSiteName} -customDomainName ${customDomainName}'
     retentionInterval: 'P1D'
     cleanupPreference: 'Always'
     forceUpdateTag: now
